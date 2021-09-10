@@ -14,7 +14,6 @@ function velgStolpe(x){
   function fjerneStolpe(){
     numbers.splice((chosenBar-1), 1);
     chosenBar = undefined;
-    velgStolpe();
     show();
   }
   

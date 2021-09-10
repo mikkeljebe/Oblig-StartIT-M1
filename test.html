@@ -21,21 +21,27 @@
 
 //tester
   QUnit.test('Velge den som er valgt', function(assert) {
-    let chosenBar = 1
-    let taLLÅSendeInn = chosenBar;
+    let chosenBar = 1;
+    let number = 1;
+    velgStolpe(number);
 
-    velgStolpe(taLLÅSendeInn);
-
-    assert.equal(chosenBar, 3, 'Ja');
+    assert.equal(chosenBar, 1,'ChosenBar er fortsatt samme nummer');
   });
 
-  QUnit.test('Blir "chosenBar" endret?', function(assert) {
-    let taLLÅSendeInn = 7
-    let expected = 7
+  QUnit.test('Velge en ny', function(assert) {
+  
+    let number = 5
+    velgStolpe(number);
 
-    velgStolpe(taLLÅSendeInn);
+    assert.equal(chosenBar, 5,'ChosenBar blir lik nytt nummer');
+  });
 
-    assert.equal(chosenBar, expected, 'Ja');
+  QUnit.test('Slette en stolpe', function(assert) {
+  numbers = [3,4,5,6];
+  chosenBar = 3;
+  fjerneStolpe();
+
+  assert.equal(numbers, [3,4,6],'Stolpen blir slettet');
   });
 
 
