@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test Suite</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.16.0.css">
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-2.16.0.js"></script>
+  <script src="controlltest.js"></script>
+  
+
+<script>
+  //model
+ let numbers = [];
+ let chosenBar;
+ let inputValue;
+ let enableDisableButtons = 'disabled'
+
+ function show(){} ;
+
+
+//tester
+  QUnit.test('Velge den som er valgt', function(assert) {
+    let chosenBar = 1
+    let taLLÅSendeInn = chosenBar;
+
+    velgStolpe(taLLÅSendeInn);
+
+    assert.equal(chosenBar, 3, 'Ja');
+  });
+
+  QUnit.test('Blir "chosenBar" endret?', function(assert) {
+    let taLLÅSendeInn = 7
+    let expected = 7
+
+    velgStolpe(taLLÅSendeInn);
+
+    assert.equal(chosenBar, expected, 'Ja');
+  });
+
+
+  // function add(a, b) {
+  //   return a + b;
+  // }
+
+  
+  //   QUnit.test('should add two numbers', function(assert) {
+  //     assert.equal(add(1, 1), 2);
+  //   });
+  
+</script>
+</body>
+
+
+
+
+velge stolpe (teste både velge den som er valgt og en annen)
+slette en stolpe
+endre en stolpe
+legge til en stolpe
+
+
+
+
