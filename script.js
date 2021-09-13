@@ -44,7 +44,7 @@
   }
 
   function calcColor(min, max, val) {
-    var minHue = 220, maxHue = 0;
+    var minHue = 250, maxHue = -70;
     var curPercent = (val - min) / (max - min);
     var colString = "hsl(" + ((curPercent * (maxHue - minHue)) + minHue) + ",100%,50%)";
     return colString;
