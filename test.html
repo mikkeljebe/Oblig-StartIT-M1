@@ -6,7 +6,7 @@
   <div id="qunit"></div>
   <div id="qunit-fixture"></div>
   <script src="https://code.jquery.com/qunit/qunit-2.16.0.js"></script>
-  <script src="controlltest.js"></script>
+  <script src="controllerFunksjonerTilTest.js"></script>
   
 
 <script>
@@ -20,7 +20,7 @@
 
 
 //tester
-  QUnit.test('Velge den som er valgt', function(assert) {
+  QUnit.test('Velge den stolpen som er valgt', function(assert) {
     let chosenBar = 1;
     let number = 1;
     velgStolpe(number);
@@ -28,7 +28,7 @@
     assert.equal(chosenBar, 1,'ChosenBar er fortsatt samme nummer');
   });
 
-  QUnit.test('Velge en ny', function(assert) {
+  QUnit.test('Velge en ny stolpe', function(assert) {
   
     let number = 5
     velgStolpe(number);
@@ -37,33 +37,52 @@
   });
 
   QUnit.test('Slette en stolpe', function(assert) {
-  numbers = [3,4,5,6];
-  chosenBar = 3;
-  fjerneStolpe();
+    numbers = [3,4,5,6];
+    chosenBar = 3;
+    fjerneStolpe();
 
-  assert.equal(numbers, [3,4,6],'Stolpen blir slettet');
+    assert.equal(numbers[2], 6,'Stolpen blir slettet');
   });
 
+  QUnit.test('Endre en stolpe', function(assert) {
+    numbers = [3,4,5,6];
+    inputValue = 7;
+    chosenBar = 1;
+    endreStolpe();
 
-  // function add(a, b) {
-  //   return a + b;
-  // }
+    assert.equal(numbers[0], 7, 'Stolpen blir endret');
+  });
 
-  
-  //   QUnit.test('should add two numbers', function(assert) {
-  //     assert.equal(add(1, 1), 2);
-  //   });
+  QUnit.test('endreStolpe feilmelding', function(assert) {
+    numbers = [3,4,5,6];
+    inputValue = 12;
+    chosenBar = 1;
+    endreStolpe();
+
+    assert.equal('hvisFeilTekst', inputValue,'Får opp feilmelding');
+  });
+
+  QUnit.test('Legge til en stolpe', function(assert) {
+    numbers = [3,4,5,6];
+    inputValue = 8;
+    leggTilStolpe();
+
+    assert.equal(numbers[4], 8,'En ny stolpe blir lagt til');
+  });
+
+  QUnit.test('Legge til en stolpe feilmelding', function(assert) {
+    inputValue = undefined;
+    leggTilStolpe();
+
+    assert.equal('hvisFeilTekst', inputValue,'Får opp feilmelding');
+  });
+
   
 </script>
 </body>
 
 
 
-
-velge stolpe (teste både velge den som er valgt og en annen)
-slette en stolpe
-endre en stolpe
-legge til en stolpe
 
 
 

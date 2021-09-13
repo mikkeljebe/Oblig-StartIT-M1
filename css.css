@@ -1,5 +1,8 @@
 .valgt {
- stroke: black;
- 
+ stroke-width: 0.5;
+ stroke:  black;
 }
 
+body {
+  line-height: 1.5rem;
+}

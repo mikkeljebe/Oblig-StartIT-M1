@@ -1,12 +1,14 @@
 function velgStolpe(x){
   chosenBar == x ? chosenBar = undefined : chosenBar = x;
-  chosenBar == undefined ? enableDisableButtons = 'disabled' : enableDisableButtons = '';
+  chosenBar == undefined 
+  ? enableDisableButtons = 'disabled' 
+  : enableDisableButtons = '';
   show()
   }
 
   function endreStolpe() {
     inputValue > 10 || inputValue < 1 || inputValue == undefined 
-    ? alert('Du må velge en verdi mellom 1 og 10') 
+    ? inputValue = 'hvisFeilTekst'
     : numbers[chosenBar-1] = parseInt(inputValue);
     show();
   }
@@ -19,7 +21,7 @@ function velgStolpe(x){
   
   function leggTilStolpe(){
     inputValue > 10 || inputValue == undefined || inputValue < 1 
-    ? alert('Du må velge en verdi mellom 1 og 10. Det blir høyden på stolpen.') 
+    ? inputValue = 'hvisFeilTekst'
     : numbers.push(parseInt(inputValue));
     show();
   }
