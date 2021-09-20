@@ -21,36 +21,48 @@
 
 //tester
   QUnit.test('Velge den stolpen som er valgt', function(assert) {
-    let chosenBar = 1;
+    chosenBar = 1;
     let barNo = 1;
     velgStolpe(barNo);
 
-    assert.equal(chosenBar, barNo,'ChosenBar er fortsatt samme nummer');
+    let actual = chosenBar;
+    let expected = undefined;
+
+    assert.equal(actual, expected,'ChosenBar blir "undefined"');
   });
 
   QUnit.test('Velge en ny stolpe', function(assert) {
-  
+    chosenBar = undefined;
     let barNo = 5
     velgStolpe(barNo);
 
-    assert.equal(chosenBar, barNo,'ChosenBar blir lik nytt nummer');
+    let actual = chosenBar;
+    let expected = barNo;
+
+    assert.equal(actual, expected,'ChosenBar blir lik nytt nummer');
   });
 
   QUnit.test('Fjerne en stolpe', function(assert) {
-    numbers = [3,4,5,6];
     chosenBar = 3;
+    numbers = [3,4,5,6];
     fjerneStolpe();
+    
+    let actual = numbers;
+    let expected = [3,4,6];
 
-    assert.equal(numbers[2], 6,'Stolpen blir fjernet');
+    assert.deepEqual(actual, expected, 'Stolpen blir fjernet');
   });
 
   QUnit.test('Endre en stolpe', function(assert) {
+    chosenBar = 1;
     numbers = [3,4,5,6];
     inputValue = 7;
-    chosenBar = 1;
     endreStolpe();
 
-    assert.equal(numbers[0], inputValue, 'Stolpen blir endret');
+    let actual = numbers;
+    let expected = [7,4,5,6];
+
+    assert.deepEqual(actual, expected, 'Stolpen blir endret');
   });
 
   QUnit.test('Legge til en stolpe', function(assert) {
@@ -58,7 +70,10 @@
     inputValue = 8;
     leggTilStolpe();
 
-    assert.equal(numbers[4], 8,'En ny stolpe blir lagt til');
+    let actual = numbers;
+    let expected = [3,4,5,6,8];
+
+    assert.deepEqual(actual, expected, 'En ny stolpe blir lagt til');
   });
 
   
