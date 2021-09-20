@@ -6,7 +6,7 @@
   <div id="qunit"></div>
   <div id="qunit-fixture"></div>
   <script src="https://code.jquery.com/qunit/qunit-2.16.0.js"></script>
-  <script src="controllerFunksjonerTilTest.js"></script>
+  <script src="controller.js"></script>
   
 
 <script>
@@ -22,26 +22,26 @@
 //tester
   QUnit.test('Velge den stolpen som er valgt', function(assert) {
     let chosenBar = 1;
-    let number = 1;
-    velgStolpe(number);
+    let barNo = 1;
+    velgStolpe(barNo);
 
-    assert.equal(chosenBar, 1,'ChosenBar er fortsatt samme nummer');
+    assert.equal(chosenBar, barNo,'ChosenBar er fortsatt samme nummer');
   });
 
   QUnit.test('Velge en ny stolpe', function(assert) {
   
-    let number = 5
-    velgStolpe(number);
+    let barNo = 5
+    velgStolpe(barNo);
 
-    assert.equal(chosenBar, 5,'ChosenBar blir lik nytt nummer');
+    assert.equal(chosenBar, barNo,'ChosenBar blir lik nytt nummer');
   });
 
-  QUnit.test('Slette en stolpe', function(assert) {
+  QUnit.test('Fjerne en stolpe', function(assert) {
     numbers = [3,4,5,6];
     chosenBar = 3;
     fjerneStolpe();
 
-    assert.equal(numbers[2], 6,'Stolpen blir slettet');
+    assert.equal(numbers[2], 6,'Stolpen blir fjernet');
   });
 
   QUnit.test('Endre en stolpe', function(assert) {
@@ -50,16 +50,7 @@
     chosenBar = 1;
     endreStolpe();
 
-    assert.equal(numbers[0], 7, 'Stolpen blir endret');
-  });
-
-  QUnit.test('endreStolpe feilmelding', function(assert) {
-    numbers = [3,4,5,6];
-    inputValue = 12;
-    chosenBar = 1;
-    endreStolpe();
-
-    assert.equal('hvisFeilTekst', inputValue,'Får opp feilmelding');
+    assert.equal(numbers[0], inputValue, 'Stolpen blir endret');
   });
 
   QUnit.test('Legge til en stolpe', function(assert) {
@@ -68,13 +59,6 @@
     leggTilStolpe();
 
     assert.equal(numbers[4], 8,'En ny stolpe blir lagt til');
-  });
-
-  QUnit.test('Legge til en stolpe feilmelding', function(assert) {
-    inputValue = undefined;
-    leggTilStolpe();
-
-    assert.equal('hvisFeilTekst', inputValue,'Får opp feilmelding');
   });
 
   
